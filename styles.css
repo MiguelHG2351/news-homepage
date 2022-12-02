@@ -197,3 +197,42 @@ button[class*="btn-"] {
   color: var(--dark-grayish-blue);
 }
 
+@media screen and (min-width: 976px) {
+  .header-logo a {
+    display: inline-block;
+  }
+
+  .header-logo svg {
+    vertical-align: middle;
+  }
+  
+  .btn-menu {
+    display: none;
+  }
+
+  .header-menu-container {
+    position: static;
+    width: auto;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .btn-close-menu {
+    display: none;
+  }
+
+  .header-menu {
+    display: flex;
+    width: auto;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .list-item + .list-item {
+    margin-top: 0;
+  }
+
+  .list-item a {
+    font-size: 1rem;
+  }
+}
