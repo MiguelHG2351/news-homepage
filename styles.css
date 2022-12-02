@@ -23,6 +23,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+}
+
 button[class*="btn-"] {
   outline: transparent;
   border: none;
@@ -83,10 +87,13 @@ button[class*="btn-"] {
 }
 
 .list-item a {
-  text-decoration: none;
   color: black;
   font-size: 1.25rem;
   font-weight: 400;
+}
+
+.list-item a:hover {
+  color: var(--soft-red);
 }
 
 .overlay {
@@ -148,6 +155,10 @@ button[class*="btn-"] {
     font-weight: bold;
 }
 
+.btn-more:hover {
+    background-color: var(--very-dark-blue);
+}
+
 .new-news {
     background-color: var(--very-dark-blue);
     padding: 1rem;
@@ -160,8 +171,16 @@ button[class*="btn-"] {
     margin: 1rem 0;
 }
 
-.new-article + .new-article {
+.new-article-link {
+  display: block;
+}
+
+.new-article-link + .new-article-link {
     border-top: 1px solid var(--grayish-blue);
+}
+
+.new-article-link:hover .title-article {
+    color: var(--soft-orange);
 }
 
 .title-article {
@@ -180,6 +199,10 @@ button[class*="btn-"] {
   gap: 2.5rem 0;
 }
 
+.other-article-link:hover .other-article-title {
+  color: var(--soft-red);
+}
+
 .other-article {
   display: flex;
   gap: 0 1.5rem;
@@ -196,6 +219,7 @@ button[class*="btn-"] {
 }
 
 .other-article-title {
+  color: black;
   font-size: 18px;
   margin: .25rem 0;
   font-weight: 800;
