@@ -221,14 +221,10 @@ button[class*="btn-"] {
   }
 
   .header-menu {
-    display: flex;
+    flex-direction: row;
     width: auto;
     align-items: center;
     gap: 2rem;
-  }
-
-  .list-item + .list-item {
-    margin-top: 0;
   }
 
   .list-item a {
