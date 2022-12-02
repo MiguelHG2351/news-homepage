@@ -68,10 +68,9 @@ button[class*="btn-"] {
   list-style: none;
   width: 12rem;
   padding-right: 0;
-}
-
-.list-item + .list-item {
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem 0;
 }
 
 .list-item a {
