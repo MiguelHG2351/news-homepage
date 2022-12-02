@@ -36,7 +36,7 @@
         </a>
       </div>
       <nav class="header-nav">
-        <button class="btn-menu">
+        <button class="btn-menu" id="open-menu">
           <svg width="40" height="17" xmlns="http://www.w3.org/2000/svg">
             <g fill="#00001A" fill-rule="evenodd">
               <path d="M0 0h40v3H0zM0 7h40v3H0zM0 14h40v3H0z" />
@@ -44,7 +44,7 @@
             </g>
           </svg>
         </button>
-        <div class="header-menu-container">
+        <div class="header-menu-container" id="sidenav">
           <button class="btn-close-menu" id="close-menu">
             <svg width="32" height="31" xmlns="http://www.w3.org/2000/svg">
               <g fill="#00001A" fill-rule="evenodd">
@@ -63,30 +63,96 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <section class="main-section">
+        <img class="main-image" src="/assets/images/image-web-3-mobile.jpg" alt="">
+        <div class="info-news">
+          <h1 class="title">The Bright Future of Web 3.0?</h1>
+          <div class="description-news">
+            <p class="description-text">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
+            <button class="btn-more">Read more</button>
+          </div>
+        </div>
+      </section>
+      <aside class="new-news">
+        <h2 class="title-new">New</h2>
+        <section class="new-list">
+          <article class="new-article">
+            <h3 class="title-article">Hydrogen VS Electric Cars</h3>
+            <p class="description-article">Will hydrogen-fueled cars ever catch up to EVs?</p>
+          </article>
+          <article class="new-article">
+            <h3 class="title-article">The Downsides of AI Artistry</h3>
+            <p class="description-article">What are the possible adverse effect of on-demand AI image generation?</p>
+          </article>
+          <article class="new-article">
+            <h3 class="title-article">Is VC Funding Up?</h3>
+            <p class="description-article">Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+          </article>
+        </section>
+      </aside>
+      <section class="other-list">
+        <article class="other-article">
+          <img src="/assets/images/image-retro-pcs.jpg" alt="PCs retro">
+          <div class="other-article-description">
+            <span class="number-other-article">
+              01
+            </span>
+            <h4 class="other-article-title">Reviving Retro PCs</h4>
+            <p class="other-article-paragraph">What happens when old PCs are given modern upgrades?</p>
+          </div>
+        </article>
+        <article class="other-article">
+          <img src="/assets/images/image-top-laptops.jpg" alt="PCs retro">
+          <div class="other-article-description">
+            <span class="number-other-article">
+              02
+            </span>
+            <h4 class="other-article-title">Top 10 Laptops of 2022</h4>
+            <p class="other-article-paragraph">Our best picks of various needs and budgets</p>
+          </div>
+        </article>
+        <article class="other-article">
+          <img src="/assets/images/image-gaming-growth.jpg" alt="PCs retro">
+          <div class="other-article-description">
+            <span class="number-other-article">
+              03
+            </span>
+            <h4 class="other-article-title">The Growth of Gaming</h4>
+            <p class="other-article-paragraph">How the pandemic has sparked fresh opportunities.</p>
+          </div>
+        </article>
+      </section>
+    </main>
     <footer></footer>
     <div class="overlay" id="overlay"></div>
     <script>
-      const btnCloseMenu = document.querySelector("#close-menu");
-
+      const $btnCloseMenu = document.querySelector("#close-menu");
+      const $btnOpenMenu = document.querySelector("#open-menu");
+      const $sidenav = document.querySelector("#sidenav");
+      const $overlay = document.querySelector("#overlay");
       /**
        * @param {HTMLElement} element
        * @param {string} className
        */
-      function toggleClass(element) {
-        let currentClass = undefined;
-        const menuClass = ['active', 'in-active']
-        const replaceWidth = {
-          'active': menuClass[1],
-          _default: menuClass[0]
+      function toggleClass() {
+        let currentClass = $sidenav.classList.item(1)
+        const menuClass = ["active", "in-active"];
+        const replaceWith = {
+          active: menuClass[1],
+          'in-active': menuClass[0],
+        };
+
+        if($sidenav.classList.contains(menuClass[0]) || $sidenav.classList.contains(menuClass[1])) {
+          $sidenav.classList.replace(currentClass, replaceWith[currentClass])
+          $overlay.classList.replace(currentClass, replaceWith[currentClass])
+          return ;
         }
-
-        element.classList.replace(
-          replaceWidth[element.classList[0]] || replaceWidth._default,
-          replaceWidth[element.classList[0]] || replaceWidth._default
-        );
+        $sidenav.classList.add(menuClass[0])
+        $overlay.classList.add(menuClass[0])
       }
-
+      $btnCloseMenu.addEventListener("click", toggleClass);
+      $btnOpenMenu.addEventListener("click", toggleClass);
     </script>
   </body>
 </html>
